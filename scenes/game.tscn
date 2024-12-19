@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnrrl05cghghw"]
+
+[ext_resource type="Script" path="res://scripts/back_button.gd" id="1_2puja"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_button" type="Button" parent="Panel"]
+layout_mode = 1
+offset_right = 82.0
+offset_bottom = 31.0
+text = "Back"
+script = ExtResource("1_2puja")
+
+[connection signal="pressed" from="Panel/back_button" to="Panel/back_button" method="_on_pressed"]
