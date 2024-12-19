@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c1do0oicktwqx"]
+[gd_scene load_steps=2 format=3 uid="uid://c1do0oicktwqx"]
+
+[ext_resource type="Script" path="res://scripts/file_dialog.gd" id="2_3cboi"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +9,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Load ROM"
+size = Vector2i(324, 180)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.ch8")
+use_native_dialog = true
+script = ExtResource("2_3cboi")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -30,3 +43,7 @@ offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Load ROM"
+
+[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_file_selected"]
+[connection signal="pressed" from="Panel/Button" to="Panel/Button" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Button" to="FileDialog" method="_on_button_pressed"]

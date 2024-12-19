@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="CHIP-8 Emulator"
+run/main_scene="res://scenes/initial.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalFileDialog="*res://scripts/file_dialog.gd"
 
 [rendering]
 
